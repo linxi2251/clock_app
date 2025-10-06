@@ -2,4 +2,4 @@
 name = "Clock"
 
 [tool.pyside6-project]
-files = ["main.py", "main.qml", "resources.qrc"]
+files = ["MMenu.qml", "main.py", "main.qml", "resources.qrc"]

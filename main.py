@@ -43,6 +43,7 @@ def main():
     QCoreApplication.setApplicationName("Clock")
 
     app = QApplication()
+    app.setStyle("Fusion")
 
     # 单实例检查
     single_app = SingleApplication("ClockApp_SingleInstance")

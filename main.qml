@@ -5,8 +5,8 @@ import Qt.labs.platform as Platform
 
 ApplicationWindow {
   id: window
-  width: 320
-  height: 320
+  width: 310
+  height: 310
   visible: true
   title: qsTr("模拟时钟")
   color: "transparent"
@@ -71,21 +71,11 @@ ApplicationWindow {
   }
 
 
-  Menu {
+  MMenu {
     id: contextMenu
     closePolicy: Popup.CloseOnPressOutside | Popup.CloseOnEscape
 
-    component MMenuItem: MenuItem {
-      hoverEnabled: true
-      padding: 12
-      implicitHeight: 34
-      background: Rectangle {
-        color: hovered ? palette.highlight : "transparent"
-      }
-    }
-
-
-    MMenuItem {
+    Action {
       text: window.stayOnTop ? qsTr("📌置顶") : qsTr("置顶")
       onTriggered: window.stayOnTop = !window.stayOnTop
 
@@ -93,7 +83,7 @@ ApplicationWindow {
 
     MenuSeparator {}
 
-    MMenuItem {
+    Action {
       id: quitAction
       text: qsTr("退出")
       onTriggered: Qt.quit()
