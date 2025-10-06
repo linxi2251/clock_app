@@ -53,7 +53,9 @@ def main():
         sys.exit(0)
     
     engine = QQmlApplicationEngine()
-    qml_file = Path(__file__).resolve().parent / "main.qml"
+    engine.addImportPath(":/")
+    # qml_file = Path(__file__).resolve().parent / "main.qml"
+    qml_file = ":/main.qml"
     engine.load(qml_file)
     if not engine.rootObjects():
         sys.exit(-1)

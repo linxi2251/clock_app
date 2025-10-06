@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import Qt.labs.platform as Platform
+import Components
 
 ApplicationWindow {
   id: window

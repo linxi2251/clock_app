@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>resources/clock-circle.png</file>
         <file>qtquickcontrols2.conf</file>
+        <file>Components/MMenu.qml</file>
+        <file>Components/qmldir</file>
+        <file>main.qml</file>
     </qresource>
 </RCC>
