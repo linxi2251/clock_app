@@ -1,8 +1,9 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
+import Qt.labs.platform as Platform
 
-Window {
+ApplicationWindow {
   id: window
   width: 320
   height: 320
@@ -11,6 +12,56 @@ Window {
   color: "transparent"
   property bool stayOnTop: false
   flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint : Qt.FramelessWindowHint
+
+  // 系统托盘图标
+  Platform.SystemTrayIcon {
+    id: systemTray
+    visible: true
+    tooltip: qsTr("模拟时钟")
+    icon.source: "qrc:/resources/clock-circle.png"
+    
+    onActivated: function(reason) {
+      // 当点击托盘图标时
+      if (reason === Platform.SystemTrayIcon.Trigger) {
+        if (window.visible && window.active) {
+          window.hide()
+        } else {
+          window.show()
+          window.raise()
+          window.requestActivate()
+        }
+      }
+    }
+    
+    menu: Platform.Menu {
+      Platform.MenuItem {
+        text: qsTr("显示/隐藏")
+        onTriggered: {
+          if (window.visible) {
+            window.hide()
+          } else {
+            window.show()
+            window.raise()
+            window.requestActivate()
+          }
+        }
+      }
+      
+      Platform.MenuSeparator {}
+      
+      Platform.MenuItem {
+        text: window.stayOnTop ? qsTr("📌置顶") : qsTr("置顶")
+        onTriggered: window.stayOnTop = !window.stayOnTop
+      }
+      
+      Platform.MenuSeparator {}
+      
+      Platform.MenuItem {
+        text: qsTr("退出")
+        onTriggered: Qt.quit()
+      }
+    }
+  }
 
   Text {
     text: "📌"
