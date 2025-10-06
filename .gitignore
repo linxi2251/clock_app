@@ -1,0 +1,6 @@
+.venv
+runtime
+site-packages
+clock.exe
+*user
+*.int
