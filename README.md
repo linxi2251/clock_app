@@ -2,7 +2,7 @@
 
 一个简洁美观的桌面模拟时钟应用,使用 PySide6 (Qt for Python) 和 QML 开发。
 
-<img src="./assets/image-20251006132108825.png" alt="image-20251006132108825" style="zoom:50%;" />
+<img src="./assets/image-20251006132108825.png" alt="image-20251006132108825" />
 
 ## 功能特性
 
